@@ -1,0 +1,55 @@
+body{
+    background-image: url("bg.jpg");
+    background-size: cover;                    /* <------ */
+    background-repeat:   no-repeat;
+    /* background-position: center center;  */
+}
+
+.heading{
+    color: white;
+    font-weight: lighter;
+}
+.lbl{
+    color: white;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-left: -10px;;
+    margin-top: 10px;
+}
+.form{
+    margin: auto;
+}
+.r_hide{
+    display: none;
+}
+
+input{
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;
+    
+}
+
+.r_lbl{
+    background: white;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+}
+input[type=radio]:checked + .r_lbl{
+    background: black;
+    color: white;
+}
+p{
+    color: white;
+}
+
+.submit_btn{
+    margin: auto;
+}
+.submit_btn button{
+    border: none;
+    border-radius: 10px;
+    width: 100px;
+}
