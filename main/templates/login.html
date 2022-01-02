@@ -1,0 +1,38 @@
+{% extends 'layouts/app.html' %} 
+{% block content %}
+<div class="row">
+  <h1 class="text-center heading mt-4">Login</h1>
+</div>
+<div class="row">
+    <div class="col-md-3 form">
+        {% for e in errors %} 
+            <div class="alert alert-danger">{{e}}</div>
+        {% endfor %}
+    </div>
+</div>
+<div class="row">
+  <form action="" method="post">
+      {% csrf_token %}
+    <div class="col-md-3 form">
+      <div class="row">
+        <p class="lbl">E-Mail</p>
+        <input type="email" name="email" required />
+      </div>
+      <div class="row">
+        <p class="lbl">Password</p>
+        <input type="password" name="password" required />
+      </div>
+      <div class="row">
+        <p class="text-center">
+          No Account ? <a href="/" style="color: white">Register</a>
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-4 submit_btn">
+          <button type="submit"><b>Login</b></button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

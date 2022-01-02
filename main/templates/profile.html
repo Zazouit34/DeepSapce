@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="row">
-    <h1  class="text-center heading mt-4">Register to see what's in your deep space</h1>
+    <h1  class="text-center heading mt-4">Hey {{profile.name}} , This is your profile</h1>
 </div>
 <div class="row">
     <div class="col-md-3 form">
@@ -19,30 +19,30 @@
         <div class="col-md-3 form">
             <div class="row">
                 <p class="lbl">Name</p>
-                <input type="text" name="name" required>
+                <input type="text" name="name" value="{{profile.name}}" required>
             </div>
             <div class="row">
                 <p class="lbl">Birthday</p>
-                <input type="date" name="bd" required>
+                <input type="date" name="bd" value="{{profile.birthday|date:'Y-m-d'}}" required>
             </div>
             <div class="row">
                 <p class="lbl">Place of birth</p>
-                <input type="text" name="pob" required>
+                <input type="text" name="pob" value="{{profile.placeOfBirth}}" required>
             </div>
             <div class="row">
                 <p class="lbl">Sex</p>
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-4">
-                            <input class="r_hide" value="m" type="radio" name="sex" id="m">
+                            <input class="r_hide" {% if profile.sex == "m" %} checked {% endif %} value="m" type="radio" name="sex" id="m">
                             <label class="r_lbl" for="m">M</label>
                         </div>
                         <div class="col-md-4">
-                            <input class="r_hide" value="f" type="radio" name="sex" id="f">
+                            <input class="r_hide" {% if profile.sex == "f" %} checked {% endif %} value="f" type="radio" name="sex" id="f">
                             <label class="r_lbl" for="f">F</label>
                         </div>
                         <div class="col-md-4">
-                            <input class="r_hide" value="d" type="radio" name="sex" id="d">
+                            <input class="r_hide" {% if profile.sex == "d" %} checked {% endif %} value="d" type="radio" name="sex" id="d">
                             <label class="r_lbl" for="d">D</label>
                         </div>
                     </div>
@@ -50,24 +50,21 @@
             </div>
             <div class="row">
                 <p class="lbl">E-Mail</p>
-                <input type="email" name="email" required>
+                <input type="email" name="email" value="{{profile.email}}" required>
             </div>
-            <div class="row">
-                <p class="lbl">Password</p>
-                <input type="password" name="password" required>
-            </div>
-            <div class="row">
-                <p class="lbl">Re-Enter Password</p>
-                <input type="password" name="re_password" required>
-            </div>
+
             <br>
-            <div class="row">
-                <P class="text-center">Already Registered ? <a href="/login" style="color: white;">Login</a></P>
-            </div>
             <div class="row ">
                 <div class="col-md-4  submit_btn">
-                    <button type="submit"><b>Submit</b></button>
+                    <button type="submit"><b>Edit</b></button>
                 </div>
+            </div>
+            <br>
+            <div class="row text-center">
+
+                <a style="color: white; font-size:18px;" href="/logout">Logout</a>
+                <br>
+                <a style="color:red; font-size:18px;" href="/delete-account">Delete Account</a>
             </div>
         </div>
 
