@@ -1,0 +1,33 @@
+{% extends 'layouts/app.html' %} 
+{% block content %}
+
+<div class="row m-4">
+    <div class="col-md-5 form" style="color: white;">
+        <h3>{{data.q}}</h3>
+        
+            <form action="" method="get">
+                <input type="hidden" name="id" value="{{data.next}}">
+                <input type="hidden" name="qid" value="{{data.q.id}}">
+                <ol>
+                    {% for a in data.ans %}
+                        <li  ><input class="ans" type="radio"  name="answer" value="{{a.id}}" > {{a}}</li>
+                    {% endfor %}
+                </ol>
+                <div class="row">
+                    <input style="margin: auto; width:200px" type="submit" value="Continue">
+                </div>
+                
+            </form>
+        
+    </div>
+</div>
+
+<script>
+    let a = document.querySelectorAll(".ans")
+    let len = a.length
+    let rand = Math.floor(Math.random() * len);
+                        
+    a[rand].setAttribute("checked","true")
+</script>
+
+{% endblock %}
